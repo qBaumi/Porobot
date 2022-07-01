@@ -46,11 +46,11 @@ class basic(commands.Cog):
         partyemoji = "🟨"
         redsquare = "🟥"
         empty = "<:rect843:881875152630059019>"
-        await interaction.response.send_message(f"{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}\n"
+        await interaction.response.send_message(f"{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}\n"
                                                 f"{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}\n"
                                                 f"{empty} {user.mention} just got `{poroscore} PoroScore` <:poroL:984203294069112912>{empty}\n"
                                                 f"{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}{empty}\n"
-                                                f"{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}")
+                                                f"{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}{partyemoji}{redsquare}")
 
     @app_commands.command(name="poroscoreboard", description="PoroScoreBored")
     async def poroscoreboard(self, interaction: discord.Interaction):
