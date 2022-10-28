@@ -1,5 +1,7 @@
 import asyncio
 import random
+from typing import Optional
+
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -76,6 +78,19 @@ class basic(commands.Cog):
         for user in data:
             member = await self.client.fetch_user(user[0])
             em.add_field(name=str(member), value=f"`PoroScore: {user[1]}` <{random.choice(emotes)}>", inline=False)
+        await interaction.response.send_message(embed=em, ephemeral=True)
+
+    @app_commands.describe(user="The user whose poropoints you want to look up")
+    @app_commands.command(name="points", description="Show your Poropoints")
+    async def points(self, interaction: discord.Interaction, user: Optional[discord.User]):
+        if user == None:
+            user = interaction.user
+
+        if not self.check_loyalty(user):
+            utils.sql_exec(f"INSERT INTO poroscore (id, score) VALUES ('{user.id}', 0)")
+
+        points = utils.sql_select(f"SELECT score FROM poroscore WHERE id = '{user.id}'")[0][0]
+        em = discord.Embed(title=f"Poropoints of {user.name}", description=f"{points}")
         await interaction.response.send_message(embed=em, ephemeral=True)
 
 async def setup(client):
